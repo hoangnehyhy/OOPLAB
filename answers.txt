@@ -1,1 +1,80 @@
+6.1:
+-  When i chosen "Cancel",  the application displayed "You've chosen: No".
+-  In this code, the "option" variable is only used to check if it is Yes or not. So when we choose cancel, it simplely realize that the input it is NOT "Yes", so it displays to the screen that "You've chosen: No.
+  There are two ways to change the dialog to make it has 2 options Yes_No OR "I do/I dont't"
+    1. This way can make the application to have 2 options Yes_No, but cannot display "I do/I don't", because the ShowConfirm's options cannot be changed name (Yes/No/Cancel).
+        import javax.swing.JOptionPane;
+        public class ChoosingOption {
+            public static void main(String[] args) {
+                int option = JOptionPane.showConfirmDialog(
+                        null,
+                        "Do you want to change the first class ticket? ", //message that display to the dialog
+                        "Select option",                                  //title of this
+                        JOptionPane.YES_NO_OPTION                         //choose 2 from 3 option (Yes, No, Cancel) from default setting of this func to display to the screen!
+                );
+            }
+        }
 
+
+
+    2.  The second way: We use another function, that is ShowConfirm, which can help us to change the optine more flexible (name of options, number of options, ...). Then we will use if(...) to display message to screen, instead of checking by "==" then print out.
+        import javax.swing.JOptionPane;
+        public class ChoosingOption {
+            public static void main(String[] args) {
+                Object[] options = {"I do", "I don't"};                                                  //Object to create options to sent to data of option variable
+        
+                int option = JOptionPane.showOptionDialog(
+                        null,
+                        "Do you want to change to the first class ticket?",
+                        "Select option",
+                        JOptionPane.DEFAULT_OPTION,                                                     //Do not using default option
+                        JOptionPane.QUESTION_MESSAGE,                                                   //using question symbol "?"
+                        null,
+                        options,
+                        options[0]
+                );
+
+            //using if to check the value of options, instead of compare
+            if (option == 0){
+                JOptionPane.showMessageDialog(null, "You've chosen: "+ options[0]);
+                }
+            else if (option == 1){
+                JOptionPane.showMessageDialog(null, "You've chosen: "+ options[1]);
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+6.2 Code:
+import java.util.Scanner;
+public class InputFromKeyboard {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("What's your name? ");
+        String name = sc.nextLine();
+        System.out.print("How old are you? ");
+        int age = sc.nextInt();
+        System.out.print("How tall are you (m)? ");
+        double height = sc.nextDouble();
+        System.out.println("Mrs/Mr. " + name +", " + age + "years old. " + "Your height is " + height + ".");
+    }
+}
+
+
+
+
+
+
+6.3 (Submit by project in repositories)
+
+
+
+6.4
